@@ -59,3 +59,8 @@ cd vault-docker
 ```bash
 VAULT_TOKEN=$(vault token create -tls-skip-verify -policy=database-user -format=json|jq -r .auth.client_token) ./gradlew run
 ```
+
+## Ateities darbai
+* Dokerizuoti pavyzdinę programą
+* Sukurti Core OS Container Linux `cloud-config`'us visiems projektams
+* Sukurti mutual-TLS autentikaciją su Vault
