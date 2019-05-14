@@ -1,4 +1,4 @@
-# Saugus PostgreSQL diegimas naudojant Docker konteinerizacij1 bei Hashicorp Vault
+# Saugus PostgreSQL diegimas naudojant Docker konteinerizaciją bei Hashicorp Vault
 
 Darbas susideda iš trijų komponenų:
 * **postgres-docker** direktorijoje yra scriptai PostgreSQL DBVS SSL
