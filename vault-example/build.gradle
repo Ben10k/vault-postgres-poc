@@ -1,0 +1,19 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+application {
+    mainClassName = 'lt.taurosevicius.vaultexample.ProductionRunner'
+}
+group 'lt.taurosevicius'
+version '0.1.0'
+
+sourceCompatibility = 11
+
+repositories {
+    mavenCentral()
+}
+dependencies {
+    compile('com.bettercloud:vault-java-driver:4.0.0')
+    compile( 'org.postgresql:postgresql:42.2.5')
+}

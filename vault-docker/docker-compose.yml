@@ -1,0 +1,15 @@
+version: '3'
+volumes:
+  vault_data:
+    driver: local
+services:
+  vault:
+    image: vault:1.1.2
+    cap_add:
+      - IPC_LOCK
+    ports:
+      - 8200:8200
+    volumes:
+      - vault_data:/vault/file
+      - ./config:/vault/config
+    entrypoint: vault server -config=/vault/config/vault.json
