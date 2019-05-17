@@ -57,7 +57,7 @@ cd vault-docker
 ```
 * Paleidžiame programą pirma sugeneruodami Vault prieigos žetoną
 ```bash
-VAULT_TOKEN=$(vault token create -tls-skip-verify -policy=database-user -format=json|jq -r .auth.client_token) ./gradlew run
+VAULT_TOKEN=$(vault token create -tls-skip-verify -policy=database-user -format=json|jq -r .auth.client_token) ./gradlew clean run
 ```
 
 ## Ateities darbai

@@ -13,3 +13,7 @@ services:
       - vault_data:/vault/file
       - ./config:/vault/config
     entrypoint: vault server -config=/vault/config/vault.json
+networks:
+  default:
+    external:
+      name: postgres-docker_default

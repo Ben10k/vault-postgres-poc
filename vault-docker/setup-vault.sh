@@ -23,7 +23,7 @@ vault secrets enable -tls-skip-verify -path=dbs database
 echo "Adding postgres connection information"
 vault write -tls-skip-verify dbs/config/mydb \
   plugin_name=postgresql-database-plugin \
-  connection_url='postgresql://{{username}}:{{password}}@192.168.2.25:5432/mydb' \
+  connection_url='postgresql://{{username}}:{{password}}@database:5432/mydb' \
   allowed_roles=mydb-admin,mydb-user \
   username="admin" \
   password="secret" \

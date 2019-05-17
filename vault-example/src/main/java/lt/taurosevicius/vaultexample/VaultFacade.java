@@ -12,7 +12,7 @@ class VaultFacade {
     VaultFacade() {
         try {
             VaultConfig vaultConfig = new VaultConfig()
-                    .address("https://127.0.0.1:8200")               // Defaults to "VAULT_ADDR" environment variable
+                    .address("https://localhost:8200")               // Defaults to "VAULT_ADDR" environment variable
                     .engineVersion(1)
                     .openTimeout(5)                                 // Defaults to "VAULT_OPEN_TIMEOUT" environment variable
                     .readTimeout(30)

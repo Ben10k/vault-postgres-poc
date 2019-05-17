@@ -6,7 +6,7 @@ public class ProductionRunner {
     public static void main(String[] args) throws InterruptedException {
         var vault = new VaultFacade();
         var postgresCredentials = vault.getPostgresCredentials();
-        var postgres = new PostgresqlFacade("jdbc:postgresql://192.168.2.25:5432/mydb")
+        var postgres = new PostgresqlFacade("jdbc:postgresql://localhost:5432/mydb")
                 .setCredentials(postgresCredentials.getData().get("username"), postgresCredentials.getData().get("password"));
 
         printPostgresUsername(postgres, "After getting credentials");
@@ -26,7 +26,7 @@ public class ProductionRunner {
         try {
             System.out.println(String.format("%-40s*** current postgreSQL username is [%s]", info, postgres.getPostgreSqlUser()));
         } catch (SQLException e) {
-            System.out.println(String.format("%-40s*** Unable to get postgreSQL version: [%s]", info, e.getMessage()));
+            System.out.println(String.format("%-40s*** Unable to get postgreSQL username: [%s]", info, e.getMessage()));
         }
         System.out.println("\n");
     }
