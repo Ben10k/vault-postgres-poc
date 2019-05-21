@@ -3,8 +3,7 @@
     {
       "tcp": {
         "address": "0.0.0.0:8200",
-        "tls_cert_file": "/vault/config/server-cert.pem",
-        "tls_key_file": "/vault/config/server-key.pem"
+        "tls_disable": "true"
       }
     }
   ],
