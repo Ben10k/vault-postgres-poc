@@ -45,7 +45,7 @@ vault write dbs/roles/mydb-user \
   max_ttl=24h \
   creation_statements="CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' \
                          VALID UNTIL '{{expiration}}'; \
-                         GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO \"{{name}}\";"
+                         GRANT SELECT ON ALL TABLES IN SCHEMA public TO \"{{name}}\";"
 
 echo "Create database admin policy"
 vault policy write database-admin ./config/db_admin_policy.hcl
@@ -66,7 +66,7 @@ echo "Enable ssh otp for developer"
 vault write ssh/roles/developer key_type=otp default_user=administrator cidr_list=0.0.0.0/0
 
 echo "Enable ssh otp for root"
-vault write ssh/roles/developer key_type=otp default_user=root cidr_list=0.0.0.0/0
+vault write ssh/roles/admin key_type=otp default_user=root cidr_list=0.0.0.0/0
 
 echo "Enable userpass"
 vault auth enable userpass
@@ -75,7 +75,7 @@ echo "Create db_admin user"
 vault write auth/userpass/users/db_admin password=Password1 policies=database-admin
 
 echo "Create app_admin user"
-vault write auth/userpass/users/app_admin password=Password1 policies=app-dev,database-user
+vault write auth/userpass/users/app_admin password=Password1 policies=app-admin
 
 echo "Create developer user"
-vault write auth/userpass/users/developer password=Password1 policies=app-admin,database-user
+vault write auth/userpass/users/developer password=Password1 policies=app-dev,database-user
