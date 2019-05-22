@@ -2,7 +2,7 @@
 
 echo "Setting up postgres hba settings"
 cat <<EOM > ${PGDATA}/pg_hba.conf
-local     all  all       trust
+local     all  all       password
 hostnossl all  all  all  reject
 hostssl   all  all  all  password
 EOM
